@@ -39,4 +39,4 @@ running time log
 
 c. 2 hours previous
 
-8:30 -- 12:30 monday
+8:30 -- 1:30 monday
