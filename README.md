@@ -10,21 +10,33 @@ use different library for those animations?
 same with
 popper 1.3.6
 there is a popper 2
-what are we using popper for again?
+
+styling still kind of wonky
+
+import images as files in react?
 
 <> vs Fragment
 
 The biggest changes so far:
 movement to features
 BrowserRouter in index so Main becomes App
-Directory becomes CampsitesList
 
-comments feature, is that TOO modular?
+Directory became CampsiteDirectory /features/campsites
+
+are forms components or do they belong in slices?
+
+comments feature, maybe TOO modular?
 
 pages --> features
 
 ErrorMessage
 
-2 hours previous
+added some selectors
 
-8:30 --
+still needs work here and there
+
+running time log
+
+c. 2 hours previous
+
+8:30 -- 12:30 monday
