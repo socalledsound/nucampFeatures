@@ -60,7 +60,7 @@ h2 {
   background-color: #901cad;
   background-image: linear-gradient(to right, #5637dd, #3046c5, #510e5a);
   margin-bottom: 2rem;
-  height: 8rem;
+  min-height: 8rem;
 }
 
 .page-enter {
