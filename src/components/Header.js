@@ -107,7 +107,7 @@ function Header() {
                             </NavItem>
                         </Nav>
                         <span className='navbar-text ml-auto'>
-                            <Button outline onClick={toggleModal}>
+                            <Button outline onClick={toggleModal} style={{color: 'white', border: '1px solid white'}}>
                                 <i className='fa fa-sign-in fa-lg' /> Login
                             </Button>
                         </span>

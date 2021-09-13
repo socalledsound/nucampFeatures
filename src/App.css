@@ -45,8 +45,20 @@ h2 {
   color: #cec8ff;
 }
 
+.navbar-brand {
+  width: 4rem;
+  margin-right: 2rem;
+}
+.navbar-brand img {
+  width: 100%;
+  height: 100%;
+  margin-right: 2rem;
+}
+
 .navbar-dark {
   background-color: #901cad;
+  margin-bottom: 2rem;
+  height: 8rem;
 }
 
 .page-enter {
