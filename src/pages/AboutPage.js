@@ -2,30 +2,18 @@ import {
     Col,
     Row,
     Container,
-    Breadcrumb,
-    BreadcrumbItem,
     Card,
     CardBody,
     CardHeader,
 } from 'reactstrap';
-import { Link } from 'react-router-dom';
+
+import SubHeader from '../components/SubHeader'
 import PartnersList from '../features/partners/PartnersList';
 
 const About = () => {
     return (
         <Container>
-            <Row>
-                <Col>
-                    <Breadcrumb>
-                        <BreadcrumbItem>
-                            <Link to='/home'>Home</Link>
-                        </BreadcrumbItem>
-                        <BreadcrumbItem active>About Us</BreadcrumbItem>
-                    </Breadcrumb>
-                    <h2>About Us</h2>
-                    <hr />
-                </Col>
-            </Row>
+            <SubHeader current={'About Us'}/>
             <Row className='row-content'>
                 <Col sm='6'>
                     <h3>Our Mission</h3>

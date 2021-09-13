@@ -1,50 +1,34 @@
 
 import { useSelector } from 'react-redux';
 import {
-    Breadcrumb,
-    BreadcrumbItem,
     Container,
     Row,
-    Col,
 } from 'reactstrap';
-import { Link, useParams } from 'react-router-dom';
+import {useParams } from 'react-router-dom';
+import { selectFetchCampsitesStatus, selectCampsiteById } from '../features/campsites/campsitesSlice'
 import Loading from '../components/Loading';
 import ErrorMessage from '../components/ErrorMessage';
 import Comments from '../features/comments/Comments'
 import CampsiteDetail from '../features/campsites/CamspiteDetail'
+import SubHeader from '../components/SubHeader'
 
 const CampsiteDetailPage = () => {
-    const { isLoading, errMsg, campsitesArray } = useSelector(
-        (state) => state.campsites
-    );
+    const { campsitesLoading, campsitesErrMsg } = useSelector( selectFetchCampsitesStatus)
     const { campsiteId } = useParams();
-    const campsite = campsitesArray.find(
-        (campsite) => campsite.id === +campsiteId
-    );
+    const campsite = useSelector(selectCampsiteById(campsiteId))
+
+
         return (
-            isLoading ?
+            campsitesLoading ?
                 <Loading />
                 :
                 
-                errMsg ?
-                    <ErrorMessage errMsg={errMsg}/>
+                campsitesErrMsg ?
+                    <ErrorMessage errMsg={campsitesErrMsg}/>
                     :
                     campsite ?
                     <Container>
-                        <Row>
-                            <Col>
-                                <Breadcrumb>
-                                    <BreadcrumbItem>
-                                        <Link to='/directory'>Directory</Link>
-                                    </BreadcrumbItem>
-                                    <BreadcrumbItem active>
-                                        {campsite.name}
-                                    </BreadcrumbItem>
-                                </Breadcrumb>
-                                <h2>{campsite.name}</h2>
-                                <hr />
-                            </Col>
-                        </Row>
+                        <SubHeader current={campsite.name}/>
                         <Row>
                             <CampsiteDetail campsite={campsite} />
                             <Comments campsiteId={campsiteId}/>

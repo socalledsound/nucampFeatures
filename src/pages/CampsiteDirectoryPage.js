@@ -1,29 +1,14 @@
 import {
     Container,
     Row,
-    Col,
-    Breadcrumb,
-    BreadcrumbItem,
 } from 'reactstrap';
-import { Link } from 'react-router-dom';
 import CampsitesList from '../features/campsites/CampsitesList'
+import SubHeader from '../components/SubHeader'
 
 const CampsiteDirectoryPage = () => {
- 
     return (
         <Container>
-            <Row>
-                <Col>
-                    <Breadcrumb>
-                        <BreadcrumbItem>
-                            <Link to='/home'>Home</Link>
-                        </BreadcrumbItem>
-                        <BreadcrumbItem active>Directory</BreadcrumbItem>
-                    </Breadcrumb>
-                    <h2>Directory</h2>
-                    <hr />
-                </Col>
-            </Row>
+            <SubHeader current={'campsites'} />
             <Row>
                 <CampsitesList />
             </Row>

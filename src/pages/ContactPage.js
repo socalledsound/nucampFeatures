@@ -1,29 +1,16 @@
 import React from 'react';
 import {
-    Breadcrumb,
-    BreadcrumbItem,
     Container,
     Col,
     Row,
 } from 'reactstrap';
-import { Link } from 'react-router-dom';
 import ContactForm from '../components/ContactForm'
+import SubHeader from '../components/SubHeader'
 
 const ContactPage  = () => {
     return (
         <Container>
-            <Row>
-                <Col>
-                    <Breadcrumb>
-                        <BreadcrumbItem>
-                            <Link to='/home'>Home</Link>
-                        </BreadcrumbItem>
-                        <BreadcrumbItem active>Contact Us</BreadcrumbItem>
-                    </Breadcrumb>
-                    <h2>Contact Us</h2>
-                    <hr />
-                </Col>
-            </Row>
+            <SubHeader current={'Contact Us'} />
 
             <Row className='row-content align-items-center'>
                 <Col sm='4'>

@@ -7,7 +7,7 @@ import {
 // import { Fade, Stagger } from 'react-animation-components';
 import { useSelector } from 'react-redux';
 import Partner from './Partner'
-import { ErrorMessage } from 'formik';
+import ErrorMessage from '../../components/ErrorMessage';
 
 
 const PartnersList = () => {

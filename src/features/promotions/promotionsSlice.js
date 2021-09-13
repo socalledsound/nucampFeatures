@@ -35,13 +35,11 @@ const promotionsSlice = createSlice({
     },
 });
 
-export const selectFeaturedPromotion = (state) => {
-      
+export const selectFeaturedPromotion = (state) => {     
     return state.promotions.promotionsArray.find(
         (item) => item.featured
     );
 }
-
 
 export const selectFetchPromotionsStatus = state => {
     const isLoading = state.promotions.isLoading

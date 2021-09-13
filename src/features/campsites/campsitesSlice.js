@@ -41,6 +41,12 @@ export const selectFeaturedCampsite = state => {
     return state.campsites.campsitesArray.find((item) => item.featured);
 }
 
+export const selectCampsiteById = campsiteId => state => {
+    return state.campsites.campsitesArray.find(
+        (campsite) => campsite.id === parseInt(campsiteId)
+    );
+}
+ 
 export const selectFetchCampsitesStatus = state => {
     const campsitesLoading = state.campsites.isLoading
     const campsitesErrMsg  = state.campsites.errMsg
