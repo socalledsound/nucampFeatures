@@ -60,7 +60,7 @@ function Header() {
 
     return (
         <>
-            <Jumbotron fluid>
+            {/* <Jumbotron fluid>
                 <Container>
                     <Row>
                         <Col>
@@ -69,7 +69,7 @@ function Header() {
                         </Col>
                     </Row>
                 </Container>
-            </Jumbotron>
+            </Jumbotron> */}
 
             <Navbar dark sticky='top' expand='md'>
                 <Container>

@@ -6,6 +6,7 @@ import { fetchPartners } from './features/partners/partnersSlice';
 import { fetchPromotions } from './features/promotions/promotionsSlice';
 import { fetchComments } from './features/comments/commentsSlice';
 import Header from './components/Header'
+import Footer from './components/Footer'
 import HomePage from './pages/HomePage'
 import AboutPage from './pages/AboutPage'
 import ContactPage from './pages/ContactPage'
@@ -48,6 +49,7 @@ function App() {
         </Route>
         <Redirect to='/' />
       </Switch>
+      <Footer />
     </>
 
 
