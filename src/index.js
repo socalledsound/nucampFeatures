@@ -1,17 +1,25 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import { store } from './app/store';
 import { Provider } from 'react-redux';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import 'typeface-lobster';
+import 'typeface-open-sans';
+import 'font-awesome/css/font-awesome.css';
+import 'bootstrap-social/bootstrap-social.css';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <Provider store={store}>
-      <App />
-    </Provider>
-  </React.StrictMode>,
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </Provider>,
+  // </React.StrictMode>
   document.getElementById('root')
 );
 

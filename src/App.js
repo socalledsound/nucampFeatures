@@ -1,57 +1,56 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { Switch, Route, Redirect } from 'react-router-dom'
+import { fetchCampsites } from './features/campsites/campsitesSlice';
+import { fetchPartners } from './features/partners/partnersSlice';
+import { fetchPromotions } from './features/promotions/promotionsSlice';
+import { fetchComments } from './features/comments/commentsSlice';
+import Header from './components/Header'
+import HomePage from './pages/HomePage'
+import AboutPage from './pages/AboutPage'
+import ContactPage from './pages/ContactPage'
+import CampsiteDirectoryPage from './pages/CampsiteDirectoryPage'
+import CampsiteDetailPage from './pages/CampsiteDetailPage'
+
 import './App.css';
 
 function App() {
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+      dispatch(fetchCampsites());
+      dispatch(fetchPromotions());
+      dispatch(fetchPartners());
+      dispatch(fetchComments());
+  }, [dispatch]);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
+    
+    <>
+      <Header />
+      <Switch>
+        <Route exact path='/'>
+          <HomePage />
+        </Route>
+        <Route exact path='/campsites'>
+          <CampsiteDirectoryPage />
+        </Route>
+        <Route path='/campsites/:campsiteId'>
+          <CampsiteDetailPage />
+        </Route>
+        <Route exact path='/contactus'>
+          <ContactPage />
+        </Route>
+        <Route exact path='/aboutus'>
+          <AboutPage />
+        </Route>
+        <Redirect to='/' />
+      </Switch>
+    </>
+
+
   );
 }
 
