@@ -1,6 +1,8 @@
-# redux at week 3 ?
+### notes
 
--- fake data?
+###### redux at week 3 ?
+
+mat said something about fake data but i forgot what it was
 
 #
 
@@ -11,11 +13,19 @@ same with
 popper 1.3.6
 there is a popper 2
 
+#
+
 styling still kind of wonky
+
+#
 
 import images as files in react?
 
+#
+
 <> vs Fragment
+
+#
 
 The biggest changes so far:
 movement to features
@@ -33,7 +43,11 @@ ErrorMessage
 
 added some selectors
 
+#
+
 still needs work here and there
+
+#
 
 running time log
 
