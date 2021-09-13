@@ -1,5 +1,4 @@
 import { useSelector } from 'react-redux'
-// import { selectFeaturedCampsite, selectCampsiteLoading, selectCampsiteErrMsg } from '../features/campsites/campsitesSlice'
 import {
     Container,
     Row,
@@ -11,9 +10,6 @@ import { selectFeaturedPromotion, selectFetchPromotionsStatus } from '../feature
 import { selectFeaturedPartner, selectFetchPartnersStatus } from '../features/partners/partnersSlice'
 
 const HomePage = () => {
-    // const campsites = useSelector((state) => state.campsites);
-    // const promotions = useSelector((state) => state.promotions);
-    // const partners = useSelector((state) => state.partners);
 
     const featuredCampsite = useSelector(selectFeaturedCampsite)
     const {campsitesLoading, campsitesErrMsg } = useSelector(selectFetchCampsitesStatus)
@@ -21,12 +17,6 @@ const HomePage = () => {
     const {promotionsLoading, promotionsErrMsg } = useSelector(selectFetchPromotionsStatus)
     const featuredPartner = useSelector(selectFeaturedPartner)
     const {partnersLoading, partnersErrMsg } = useSelector(selectFetchPartnersStatus)
-
-    // const { campsitesLoading, campsitesErrMsg } = campsites
-    // const { promotionsLoading, promotionsErrMsg } = campsites
-    // const { partnersLoading, partnersErrMsg } = campsites
-
-    console.log(featuredCampsite, campsitesLoading, campsitesErrMsg)
 
     return (
         <Container>
