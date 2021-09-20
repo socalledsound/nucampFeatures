@@ -12,25 +12,24 @@ const CampsitesList = () => {
     const campsites = useSelector(selectCampsites)
     const {campsitesLoading, campsitesErrMsg } = useSelector(selectFetchCampsitesStatus)
 
-    return (
-        campsitesLoading ? 
-        <Loading />
-    
-            :
-            campsitesErrMsg ?
-                <ErrorMessage errMsg={campsitesErrMsg}/>
-                :
+    if(campsitesLoading){
+        return <Loading />
+    }
 
-                campsites.map((campsite) => {
-                    return (
-                        <Col md='5' key={campsite.id} className='m-1'>
-                            <CampsiteCard campsite={campsite} />
-                        </Col>
-                    );
-                })
-            
+    if(campsitesErrMsg){
+        return <ErrorMessage errMsg={campsitesErrMsg}/>
+    }
 
-    )
+    if(campsites){
+        campsites.map((campsite) => {
+            return (
+                <Col md='5' key={campsite.id} className='m-1'>
+                    <CampsiteCard campsite={campsite} />
+                </Col>
+            );
+        })
+    }
+
 }
 
 export default CampsitesList 

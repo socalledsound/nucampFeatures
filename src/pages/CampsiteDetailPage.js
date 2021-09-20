@@ -16,29 +16,27 @@ const CampsiteDetailPage = () => {
     const { campsitesLoading, campsitesErrMsg } = useSelector( selectFetchCampsitesStatus)
     const { campsiteId } = useParams();
     const campsite = useSelector(selectCampsiteById(campsiteId))
+    if(campsitesLoading){
+        return <Loading />
+    }
+     
+    if(campsitesErrMsg){
+        return <ErrorMessage errMsg={campsitesErrMsg}/>
+    }
 
-
+    if(campsite){
         return (
-            campsitesLoading ?
-                <Loading />
-                :
-                
-                campsitesErrMsg ?
-                    <ErrorMessage errMsg={campsitesErrMsg}/>
-                    :
-                    campsite ?
-                    <Container>
-                        <SubHeader current={campsite.name}/>
-                        <Row>
-                            <CampsiteDetail campsite={campsite} />
-                            <Comments campsiteId={campsiteId}/>
-                        </Row>
-                    </Container>
-                    
-                    : 
-                    null
-
+            <Container>
+                <SubHeader current={campsite.name}/>
+                <Row>
+                    <CampsiteDetail campsite={campsite} />
+                    <Comments campsiteId={campsiteId}/>
+                </Row>
+            </Container>
         )
+    }
+    
+    return null
 
 
 }
