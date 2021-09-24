@@ -39,12 +39,18 @@ export const selectFeaturedPartner = state => {
     return state.partners.partnersArray.find((item) => item.featured);
 }
 
-export const selectPartnersData = state => {
-    return {
-        featured : selectFeaturedPartner(state),
-        loading : state.partners.isLoading, 
-        errMsg : state.partners.errMsg 
-    }
-}
+export const selectPartnersData = state => ({
+    items: state.partners.partnersArray,
+    isLoading: state.partners.isLoading, 
+    errMsg: state.partners.errMsg 
+})
+
+
+export const selectFeaturedPartnerData = state => ({
+    featured : selectFeaturedPartner(state),
+    isLoading : state.partners.isLoading, 
+    errMsg : state.partners.errMsg 
+})
+
 
 export const partnersReducer = partnersSlice.reducer;

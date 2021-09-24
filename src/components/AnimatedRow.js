@@ -1,7 +1,11 @@
+
 import { Col, Row } from 'reactstrap'
-import MenuCard from "../../components/MenuCard";
+import MenuCard from "./MenuCard";
 
 const AnimatedRow = ({items}) => {
+
+
+
     return ( 
         <Row>
         {

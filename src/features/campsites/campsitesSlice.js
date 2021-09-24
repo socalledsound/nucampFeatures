@@ -48,12 +48,17 @@ export const selectCampsiteById = campsiteId => state => {
     );
 }
  
-export const selectCampsitesData = state => {
-    return {
+export const selectCampsitesData = state => ({
+    items: state.campsites.campsitesArray,
+    isLoading: state.campsites.isLoading, 
+    errMsg: state.campsites.errMsg 
+})
+
+
+export const selectFeaturedCampsiteData = state => ({
         featured : selectFeaturedCampsite(state),
-        loading : state.campsites.isLoading, 
+        isLoading : state.campsites.isLoading, 
         errMsg : state.campsites.errMsg 
-    }
-}
+})
 
 export const campsitesReducer = campsitesSlice.reducer;

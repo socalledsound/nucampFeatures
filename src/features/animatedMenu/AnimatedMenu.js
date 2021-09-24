@@ -1,22 +1,19 @@
 import { useSelector } from 'react-redux'
-import { selectCampsitesData } from '../campsites/campsitesSlice'
-import { selectPromotionsData } from '../promotions/promotionsSlice'
-import { selectPartnersData } from '../partners/partnersSlice'
-import AnimatedRow from './AnimatedRow';
-import CarouselRow from './CarouselRow'
+import { selectItems, selectFeaturedItems } from './animationSelectors'
+import AnimatedRow from '../../components/AnimatedRow';
+import CarouselRow from '../../components/CarouselRow'
 
 const AnimatedMenu = ({defaultMode}) => {
 
-    const campsites = useSelector(selectCampsitesData)
-    const promotions = useSelector(selectPromotionsData)
-    const partners = useSelector(selectPartnersData) 
-    const items = [campsites, promotions, partners]
+   const allItems = useSelector(selectItems) 
+   const featuredItems = useSelector(selectFeaturedItems)
 
+    console.log(featuredItems)
     return ( 
             defaultMode ?
-                <AnimatedRow items={items}/>
+                <AnimatedRow items={featuredItems}/>
             :
-                <CarouselRow />
+                <CarouselRow categories={allItems}/>
                     
                      
      );

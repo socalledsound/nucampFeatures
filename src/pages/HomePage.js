@@ -10,7 +10,7 @@ const HomePage = () => {
         <Container>
             <ButtonGroup>
                 <Button outline color='info' active={defaultMode} onClick={() => toggleDefaultMode(true)}>1</Button>
-                <Button outline color='info' onClick={() => toggleDefaultMode(false)}>2</Button>
+                <Button outline color='info' active={!defaultMode} onClick={() => toggleDefaultMode(false)}>2</Button>
             </ButtonGroup>
             <AnimatedMenu defaultMode={defaultMode}/>      
         </Container>
