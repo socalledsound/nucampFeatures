@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import { selectItems, selectFeaturedItems } from './animationSelectors'
-import AnimatedRow from '../../components/AnimatedRow';
-import CarouselRow from '../../components/CarouselRow'
+import AnimatedRow from '../../components/FadeInRow';
+import CarouselRow2 from '../../components/CarouselRow2'
 
 const AnimatedMenu = ({defaultMode}) => {
 
@@ -13,7 +13,7 @@ const AnimatedMenu = ({defaultMode}) => {
             defaultMode ?
                 <AnimatedRow items={featuredItems}/>
             :
-                <CarouselRow categories={allItems}/>
+                <CarouselRow2 categories={allItems}/>
                     
                      
      );
