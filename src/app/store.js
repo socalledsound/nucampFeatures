@@ -1,16 +1,21 @@
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
+import logger from 'redux-logger'
 import { campsitesReducer } from '../features/campsites/campsitesSlice';
 import { commentsReducer } from '../features/comments/commentsSlice';
 import { partnersReducer } from '../features/partners/partnersSlice';
 import { promotionsReducer } from '../features/promotions/promotionsSlice';
+// import { nucampApi } from '../services/nucampsite';
 
 const reducer = combineReducers({
     campsites: campsitesReducer,
     comments: commentsReducer,
     partners: partnersReducer,
     promotions: promotionsReducer,
+    // [nucampApi.reducerPath] : nucampApi.reducer,
 })
 
 export const store = configureStore({
-    reducer
+    reducer,
+    middleware: (getDefaultMiddleware) => 
+        getDefaultMiddleware().concat([logger]),
 });

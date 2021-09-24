@@ -7,7 +7,7 @@ import {
 // import { Fade, Stagger } from 'react-animation-components';
 import { useSelector } from 'react-redux';
 import Partner from './Partner'
-import ErrorMessage from '../../components/ErrorMessage';
+import Error from '../../components/Error';
 
 
 const PartnersList = () => {
@@ -20,7 +20,7 @@ const PartnersList = () => {
             <Loading />
             :
             errMsg ?
-            <ErrorMessage errMsg={errMsg} />
+            <Error errMsg={errMsg} />
             :
             <Col className='mt-4'>
                 <Media list>

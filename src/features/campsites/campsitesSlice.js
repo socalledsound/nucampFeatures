@@ -3,9 +3,10 @@ import { baseUrl } from '../../app/shared/baseUrl';
 // import { CAMPSITES } from '../../app/shared/CAMPSITES'
 export const fetchCampsites = createAsyncThunk(
     'campsites/fetchCampsites',
-    async () => {
-        const response = await fetch(baseUrl + 'campsites');
-        return response.json();
+    async() => {
+        const response= await fetch(baseUrl + 'campsites')
+        return response.json()
+
     }
 );
 
@@ -20,17 +21,17 @@ const campsitesSlice = createSlice({
     initialState,
     reducers: {},
     extraReducers: {
-        [fetchCampsites.pending]: (state) => {
-            state.isLoading = true;
+        [fetchCampsites.pending]: (state, action) => {
+            state.isLoading = true;   
         },
         [fetchCampsites.fulfilled]: (state, action) => {
             state.isLoading = false;
             state.errMsg = null;
-            state.campsitesArray = action.payload;
+            state.campsitesArray = action.payload; 
         },
         [fetchCampsites.rejected]: (state, action) => {
             state.isLoading = false;
-            state.errMsg = action.payload;
+            state.errMsg = action.error;
         },
     },
 });
@@ -47,12 +48,11 @@ export const selectCampsiteById = campsiteId => state => {
     );
 }
  
-export const selectFetchCampsitesStatus = state => {
-    const campsitesLoading = state.campsites.isLoading
-    const campsitesErrMsg  = state.campsites.errMsg
+export const selectCampsitesData = state => {
     return {
-        campsitesLoading, 
-        campsitesErrMsg 
+        featured : selectFeaturedCampsite(state),
+        loading : state.campsites.isLoading, 
+        errMsg : state.campsites.errMsg 
     }
 }
 

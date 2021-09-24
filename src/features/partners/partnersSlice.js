@@ -12,7 +12,7 @@ export const fetchPartners = createAsyncThunk(
 const initialState = { 
     isLoading: true, 
     errMsg: null, 
-    partnersArray: [] 
+    partnersArray: ['a thing'] 
 }
 
 const partnersSlice = createSlice({
@@ -30,7 +30,7 @@ const partnersSlice = createSlice({
         },
         [fetchPartners.rejected]: (state, action) => {
             state.isLoading = false;
-            state.errMsg = action.payload;
+            state.errMsg = action.error;
         },
     },
 });
@@ -39,12 +39,11 @@ export const selectFeaturedPartner = state => {
     return state.partners.partnersArray.find((item) => item.featured);
 }
 
-export const selectFetchPartnersStatus = state => {
-    const isLoading = state.partners.isLoading
-    const errMsg = state.partners.errMsg
+export const selectPartnersData = state => {
     return {
-        isLoading,
-        errMsg
+        featured : selectFeaturedPartner(state),
+        loading : state.partners.isLoading, 
+        errMsg : state.partners.errMsg 
     }
 }
 

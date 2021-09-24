@@ -10,7 +10,7 @@ export const fetchPromotions = createAsyncThunk(
 );
 
 const initialState = {
-    isLoading: true, 
+    isLoading: false, 
     errMsg: null, 
     promotionsArray: [] 
 }
@@ -25,28 +25,23 @@ const promotionsSlice = createSlice({
         },
         [fetchPromotions.fulfilled]: (state, action) => {
             state.isLoading = false;
-            state.errMess = null;
+            state.errMsg = null;
             state.promotionsArray = action.payload;
         },
         [fetchPromotions.rejected]: (state, action) => {
             state.isLoading = false;
-            state.errMess = action.payload;
+            state.errMsg = action.error;
         },
     },
 });
 
-export const selectFeaturedPromotion = (state) => {     
-    return state.promotions.promotionsArray.find(
-        (item) => item.featured
-    );
-}
+export const selectFeaturedPromotion = (state) => state.promotions.promotionsArray.find((item) => item.featured)    
 
-export const selectFetchPromotionsStatus = state => {
-    const isLoading = state.promotions.isLoading
-    const errMsg = state.promotions.errMsg
+export const selectPromotionsData = state => {
     return {
-        isLoading,
-        errMsg
+        featured : selectFeaturedPromotion(state),
+        loading : state.promotions.isLoading, 
+        errMsg : state.promotions.errMsg 
     }
 }
 

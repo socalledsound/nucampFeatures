@@ -2,22 +2,22 @@ import {
     Col,
 } from 'reactstrap';
 import { useSelector } from "react-redux";
-import { selectCampsites, selectFetchCampsitesStatus} from './campsitesSlice'
-import ErrorMessage from "../../components/ErrorMessage";
+import { selectCampsites, selectCampsitesData } from './campsitesSlice'
+import Error from "../../components/Error";
 import Loading from "../../components/Loading";
 import CampsiteCard from "./CampsiteCard";
 
 const CampsitesList = () => {
-
+    
     const campsites = useSelector(selectCampsites)
-    const {campsitesLoading, campsitesErrMsg } = useSelector(selectFetchCampsitesStatus)
+    const {campsitesLoading, campsitesErrMsg } = useSelector(selectCampsitesData)
 
     if(campsitesLoading){
         return <Loading />
     }
 
     if(campsitesErrMsg){
-        return <ErrorMessage errMsg={campsitesErrMsg}/>
+        return <Error errMsg={campsitesErrMsg}/>
     }
 
     if(campsites){

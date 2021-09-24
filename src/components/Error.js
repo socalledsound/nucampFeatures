@@ -4,16 +4,16 @@ import {
     Col,
 } from 'reactstrap';
 
-const ErrorMessage = ({errMsg}) => {
+const Error = ({errMsg}) => {
     return ( 
         <Container>
         <Row>
             <Col>
-                <h4>{errMsg}</h4>
+                <h4>{errMsg.message}</h4>
             </Col>
         </Row>
     </Container>
      );
 }
  
-export default ErrorMessage;
+export default Error;
