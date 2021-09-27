@@ -1,6 +1,6 @@
 import { useState, useEffect} from 'react'
 import { Row, Col } from 'reactstrap'
-import MenuCard from "./MenuCard";
+import MenuCard from "../../components/MenuCard";
 const CarouselRow = ({categories}) => {
 
     console.log(categories)

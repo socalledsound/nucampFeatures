@@ -1,16 +1,16 @@
-
+import { useEffect, useState} from 'react'
 import { Col, Row } from 'reactstrap'
 import { useTransition, animated } from "react-spring";
 import MenuCard from "./MenuCard";
 
 const AnimatedRow = ({items}) => {
 
-    // const [itemsToRender, setItemsToRender] = useState(items);
+    const [itemsToRender, setItemsToRender] = useState(null);
 
 
-    // useEffect(() => {
-    //     setTimeout(() => setItemsToRender(items), 100)
-    // }, [items, itemsToRender])
+    useEffect(() => {
+        setTimeout(() => setItemsToRender(items), 100)
+    }, [items, itemsToRender])
 
 
     // const transition = useTransition(show, (p) => p, {
@@ -26,7 +26,7 @@ const AnimatedRow = ({items}) => {
         enter: { opacity: 1},
         leave: { opacity: 0},
         config: {duration: 5000},
-        delay: 1000,
+
     })
 
 

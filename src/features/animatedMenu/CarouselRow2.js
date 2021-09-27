@@ -1,9 +1,12 @@
 import { useState, useEffect} from 'react'
+import { useSelector } from 'react-redux'
+import { selectItems } from './animationSelectors'
 import { Row, Col } from 'reactstrap'
-import MenuCard from "./MenuCard";
-const CarouselRow = ({categories}) => {
+import MenuCard from "../../components/MenuCard";
+const CarouselRow = () => {
 
-    // console.log(categories)
+  
+  const categories = useSelector(selectItems) 
 
     const [index0, setIndex0] = useState(0)
     const [index1, setIndex1] = useState(0)

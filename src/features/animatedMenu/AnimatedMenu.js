@@ -1,20 +1,28 @@
-import { useSelector } from 'react-redux'
-import { selectItems, selectFeaturedItems } from './animationSelectors'
-import AnimatedRow from '../../components/FadeInRow';
-import CarouselRow2 from '../../components/CarouselRow2'
+// import AnimatedRow from '../../components/FadeInRow';
+import { useState } from 'react'
+import { Button, ButtonGroup} from 'reactstrap';
+import IndividuallyAnimatedRow from './IndividuallyAnimatedRow'
+import CarouselRow2 from './CarouselRow2'
 
-const AnimatedMenu = ({defaultMode}) => {
+const AnimatedMenu = () => {
 
-   const allItems = useSelector(selectItems) 
-   const featuredItems = useSelector(selectFeaturedItems)
+    const [ defaultMode, toggleDefaultMode] = useState(true)
 
-    console.log(featuredItems)
     return ( 
+        <>
+            <ButtonGroup>
+                <Button outline color='info' active={defaultMode} onClick={() => toggleDefaultMode(true)}>1</Button>
+                <Button outline color='info' active={!defaultMode} onClick={() => toggleDefaultMode(false)}>2</Button>
+            </ButtonGroup>
+            {
             defaultMode ?
-                <AnimatedRow items={featuredItems}/>
-            :
-                <CarouselRow2 categories={allItems}/>
-                    
+           
+            <IndividuallyAnimatedRow />
+        :
+            <CarouselRow2 />
+            }
+
+        </>           
                      
      );
 }

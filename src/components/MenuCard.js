@@ -11,7 +11,7 @@ import { baseUrl } from '../app/shared/baseUrl';
 import Error from './Error'
 
 const MenuCard = ({ item, isLoading, errMsg }) => {
- 
+        console.log(item)
         if(isLoading){
             console.log('loading')
             return <Loading />
@@ -20,6 +20,7 @@ const MenuCard = ({ item, isLoading, errMsg }) => {
             return <Error errMsg={errMsg}/>
         }
         if(item){
+            console.log(item)
             return(
                 
                     <Card>
