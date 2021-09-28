@@ -17,9 +17,9 @@ const AnimatedMenu = () => {
             {
             defaultMode ?
            
-            <IndividuallyAnimatedRow />
-        :
-            <CarouselRow2 />
+                <IndividuallyAnimatedRow />
+            :
+                <CarouselRow2 />
             }
 
         </>           
