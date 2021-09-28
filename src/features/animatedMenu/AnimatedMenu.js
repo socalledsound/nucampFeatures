@@ -2,7 +2,7 @@
 import { useState } from 'react'
 import { Button, ButtonGroup} from 'reactstrap';
 import IndividuallyAnimatedRow from './IndividuallyAnimatedRow'
-import CarouselRow2 from './CarouselRow2'
+import CarouselRow from './CarouselRow'
 
 const AnimatedMenu = () => {
 
@@ -19,7 +19,7 @@ const AnimatedMenu = () => {
            
                 <IndividuallyAnimatedRow />
             :
-                <CarouselRow2 />
+                <CarouselRow />
             }
 
         </>           
