@@ -6,12 +6,13 @@ mat said something about fake data but i forgot what it was
 
 #
 
+<!--
 react-animation-components requires 16.0 react
 use different library for those animations?
 
 same with
 popper 1.3.6
-there is a popper 2
+there is a popper 2 -->
 
 #
 
@@ -23,7 +24,7 @@ import images as files in react?
 
 #
 
-<> vs Fragment
+<!-- <> vs Fragment -->
 
 #
 
@@ -49,8 +50,8 @@ still needs work here and there
 
 #
 
-running time log
+<!-- running time log
 
 c. 2 hours previous
 
-8:30 -- 1:30 monday
+8:30 -- 1:30 monday -->
